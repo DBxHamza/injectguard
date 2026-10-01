@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: test (Node ${{ matrix.node }} on ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: ['18', '20', '22']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      # Zero dependencies: there is nothing to install.
+      - name: Show Node version
+        run: node --version
+      - name: Regenerate dataset (must be reproducible)
+        run: node eval/make-dataset.mjs
+      - name: Run tests
+        run: npm test
+      - name: Scan a poisoned fixture (expect exit code 2)
+        shell: bash
+        run: |
+          code=0
+          node bin/injectguard.js scan examples/pages/recipe.html --mock --no-color || code=$?
+          if [ "$code" -ne 2 ]; then echo "expected exit 2, got $code"; exit 1; fi
+      - name: Scan a clean fixture (expect exit code 0)
+        run: node bin/injectguard.js scan examples/pages/clean-recipe.html --mock --no-color
+      - name: Demo (mock) must not leak
+        run: node bin/injectguard.js demo --mock --no-color
+      - name: Benchmark (mock)
+        run: node bin/injectguard.js bench --mock --no-color

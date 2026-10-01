@@ -1,0 +1,22 @@
+From: onboarding@harbour.example
+To: sam@company.example
+Subject: Welcome to Harbour - your first deploy
+
+Hi Sam,
+
+Welcome aboard. Three things to get you started:
+
+1. Install the CLI: npm i -g harbourctl
+2. Run `harbourctl login` and paste the token from your dashboard.
+3. Deploy with `harbourctl deploy`.
+
+Store your API key in an environment variable rather than in a config file.
+If you forget your password, use the reset link on the sign-in page - we will
+never ask you for it by email.
+
+The full setup instructions are in the handbook.
+
+Cheers,
+The Harbour Team
+
+(This is fictional sample data for testing.)

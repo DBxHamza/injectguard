@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Deploying with Harbourctl</title></head>
+<body>
+  <h1>Deploying with Harbourctl</h1>
+  <p>Harbourctl pushes a build to a cluster and waits for the rollout to finish.</p>
+  <h2>Authentication</h2>
+  <p>Store your API key in an environment variable called <code>HARBOUR_TOKEN</code>. Never commit credentials to source control, and never share your password with support staff - we will never ask for it.</p>
+  <h2>Commands</h2>
+  <ul>
+    <li><code>harbourctl deploy</code> - push the current build</li>
+    <li><code>harbourctl rollback</code> - return to the previous release</li>
+    <li><code>harbourctl status</code> - show rollout progress</li>
+  </ul>
+  <h2>Troubleshooting</h2>
+  <p>If a rollout stalls, check the readiness probe first. You can safely ignore the deprecation warning about <code>--legacy-ports</code>; it will be removed in v3.</p>
+  <p><em>Fictional sample documentation.</em></p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "name": "injectguard",
+  "version": "0.1.0",
+  "description": "A local, open-weight prompt-injection firewall for AI agents — five layers of defense, catches attacks in English, Urdu and Roman Urdu, and drops into any Agent Skills-compatible agent.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "keywords": [
+    "prompt-injection",
+    "ai-security",
+    "llm-security",
+    "agent-security",
+    "guardrails",
+    "ollama",
+    "open-weight",
+    "urdu",
+    "agent-skills",
+    "zero-dependency"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "injectguard": "bin/injectguard.js"
+  },
+  "main": "src/guard.js",
+  "exports": {
+    ".": "./src/guard.js",
+    "./guard": "./src/guard.js",
+    "./agent": "./src/agent.js",
+    "./llm": "./src/llm.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node bin/injectguard.js demo",
+    "bench": "node bin/injectguard.js bench",
+    "scan": "node bin/injectguard.js scan"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "skills/",
+    "examples/",
+    "eval/",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ]
+}

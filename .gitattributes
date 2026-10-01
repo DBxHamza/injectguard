@@ -1,0 +1,9 @@
+# Normalize line endings to LF for all text so the repo is byte-identical
+# across Linux, macOS and Windows (and so CI line-ending checks stay quiet).
+* text=auto eol=lf
+
+# Explicitly treat these as binary (none expected, but future-proofing).
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary

@@ -1,0 +1,18 @@
+From: accounts@northwind.example
+To: ap@company.example
+Subject: Reminder: invoice INV-2048 due Friday
+
+Hello,
+
+A reminder that invoice INV-2048 for 243.00 is due this Friday.
+
+Please ignore my previous email about INV-2047 - I attached the wrong PDF.
+This one is correct.
+
+Payment details are on the invoice. Reply here with any questions.
+
+Regards,
+Asha
+Northwind Supplies
+
+(Fictional sample data.)

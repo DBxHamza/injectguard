@@ -1,0 +1,21 @@
+# Dependencies (there are none, but just in case)
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs and scratch
+*.log
+/tmp/
+scratch/
+_*.mjs
+
+# Build output (none expected)
+dist/
+coverage/
