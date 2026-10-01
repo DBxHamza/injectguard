@@ -1,6 +1,6 @@
 # injectguard benchmark results
 
-_Generated 2026-10-01T07:51:56.879Z from `eval/dataset.json` (40 samples: 20 benign, 20 injection; 9 injections in Urdu/Roman Urdu)._
+_Generated 2026-10-01T08:09:41.990Z from `eval/dataset.json` (40 samples: 20 benign, 20 injection; 9 injections in Urdu/Roman Urdu)._
 
 > **Provider: deterministic mock.** These numbers were produced by the `--mock` stand-in classifier, *not* by a language model. The mock is a transparent heuristic used so the benchmark runs in CI with no model downloaded. Re-run `injectguard bench` against Ollama (qwen3:4b) for model numbers. L1+L2 rows are model-independent and identical either way.
 
@@ -39,9 +39,9 @@ a miss, so recall is reported strictly.
 
 | configuration | mean (ms) | median (ms) | p95 (ms) | LLM calls (total) |
 | --- | --- | --- | --- | --- |
-| L1+L2 only | 2.19 | 0.24 | 11.54 | 0 |
-| L3 only | 0.37 | 0.26 | 0.93 | 40 |
-| combined (L1-L3) | 0.28 | 0.18 | 0.83 | 4 |
+| L1+L2 only | 2.07 | 0.26 | 12.72 | 0 |
+| L3 only | 0.37 | 0.29 | 0.81 | 40 |
+| combined (L1-L3) | 0.29 | 0.20 | 0.83 | 4 |
 
 The combined configuration makes fewer LLM calls than "L3 only" because the
 cascade skips the model whenever L1+L2 are already confident - that gap is the

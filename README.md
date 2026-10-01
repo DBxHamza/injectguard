@@ -2,7 +2,7 @@
 
 **A local, open-weight prompt-injection firewall for AI agents — five layers of defense, catches attacks in English, Urdu and Roman Urdu, and drops into any Agent Skills-compatible agent.**
 
-[![CI](https://github.com/OWNER/injectguard/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/injectguard/actions/workflows/ci.yml)
+[![CI](https://github.com/DBxHamza/injectguard/actions/workflows/ci.yml/badge.svg)](https://github.com/DBxHamza/injectguard/actions/workflows/ci.yml)
 &nbsp;Apache-2.0&nbsp;·&nbsp;Node ≥ 18&nbsp;·&nbsp;zero npm dependencies&nbsp;·&nbsp;runs on an 8 GB consumer GPU via [Ollama](https://ollama.com)
 
 ---
@@ -126,7 +126,7 @@ Layers 1–3 live in [`src/layers/`](src/layers/) and combine in
 ollama pull qwen3:4b          # ~2.6 GB; qwen3:1.7b is a lighter fallback
 
 # 2. Clone this repo (zero npm dependencies — nothing to install)
-git clone https://github.com/OWNER/injectguard && cd injectguard
+git clone https://github.com/DBxHamza/injectguard && cd injectguard
 
 # 3. See it work
 node bin/injectguard.js demo              # against your local model

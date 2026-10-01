@@ -557,7 +557,7 @@ function decodeBase64(blob) {
     if (buf.length === 0) return null;
     const text = buf.toString('utf8');
     // Reject lossy decodes (replacement characters mean it was not text).
-    if (text.includes('�')) return null;
+    if (text.includes(String.fromCharCode(0xFFFD))) return null;
     return text;
   } catch {
     return null;
