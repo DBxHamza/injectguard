@@ -119,6 +119,30 @@ Layers 1–3 live in [`src/layers/`](src/layers/) and combine in
 [`src/guard.js`](src/guard.js). The guarded agent harness and L4/L5 are in
 [`src/agent.js`](src/agent.js).
 
+## The local model
+
+injectguard runs on a single **open-weight** model, served locally by
+[Ollama](https://ollama.com) — nothing is sent to any cloud API.
+
+| | Model | Ollama tag | Size | Use |
+| --- | --- | --- | --- | --- |
+| **Default** | **Qwen3 4B** | `qwen3:4b` | ~2.6 GB | recommended; fits an 8 GB consumer GPU |
+| Lighter fallback | Qwen3 1.7B | `qwen3:1.7b` | ~1.4 GB | smaller GPUs / CPU-only, slightly lower accuracy |
+
+The model powers **two** of the five layers — the L3 classifier and the L5 intent
+check. Layers 1, 2 and 4 are deterministic and need no model at all. Pick a
+different model with the `--model` flag or the `OLLAMA_MODEL` environment
+variable, and point at a non-default host with `--host` / `OLLAMA_HOST`
+(default `http://localhost:11434`). It's configured in
+[`src/llm.js`](src/llm.js).
+
+```bash
+ollama pull qwen3:4b                      # the default
+node bin/injectguard.js demo              # uses qwen3:4b
+node bin/injectguard.js demo --model qwen3:1.7b   # lighter fallback
+node bin/injectguard.js demo --mock       # no model at all (deterministic stand-in)
+```
+
 ## Quickstart
 
 ```bash
